@@ -2,6 +2,7 @@ package com.hbase.examples;
 
 import java.io.IOException;
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.client.HTable;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.util.Bytes;
@@ -15,8 +16,7 @@ import org.apache.hadoop.hbase.util.Bytes;
 public class HBasePutExample {
 	public static void main(String args[]) {
 		try {
-			HBaseHelper.createHadoopConfiguration();
-			Configuration conf = HBaseHelper.conf;
+			Configuration conf = HBaseConfiguration.create(); 
 			HTable table;
 			table = new HTable(conf, "testtable");
 			Put put = new Put(Bytes.toBytes("row1"));

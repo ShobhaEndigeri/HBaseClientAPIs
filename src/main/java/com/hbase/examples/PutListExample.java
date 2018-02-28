@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.client.HTable;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.util.Bytes;
@@ -13,8 +14,8 @@ public class PutListExample {
 	public static void main(String args[]) {
 
 		try {
-			HBaseHelper.createHadoopConfiguration();
-			Configuration conf = HBaseHelper.conf;
+			Configuration conf = HBaseConfiguration.create(); 
+			HBaseHelper helper = HBaseHelper.getHelper(conf);
 			HTable table;
 			table = new HTable(conf, "testtable");
 			

@@ -2,6 +2,7 @@ package com.hbase.examples;
 
 import java.io.IOException;
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.client.Get;
 import org.apache.hadoop.hbase.client.HTable;
 import org.apache.hadoop.hbase.client.Put;
@@ -14,9 +15,8 @@ public class GetExample {
 		Configuration conf = null;
 
 		try {
-			HBaseHelper.createHadoopConfiguration();
-			conf = HBaseHelper.conf;
-			HBaseHelper helper = new HBaseHelper(conf);
+			conf = HBaseConfiguration.create(); 
+			HBaseHelper helper = HBaseHelper.getHelper(conf);
 			String tableName = "testtable";
 			helper.dropTable(tableName);
 			helper.createTable(tableName, "colfam1","colfam2");

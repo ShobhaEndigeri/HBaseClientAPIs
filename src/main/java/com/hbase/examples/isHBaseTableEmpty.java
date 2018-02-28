@@ -2,6 +2,7 @@ package com.hbase.examples;
 
 import java.io.IOException;
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.client.HBaseAdmin;
 import org.apache.hadoop.hbase.client.HTable;
 import org.apache.hadoop.hbase.client.ResultScanner;
@@ -32,8 +33,7 @@ public class isHBaseTableEmpty {
 		Configuration conf = null;
 		Scan scan = new Scan();
 		boolean empty = true;
-		HBaseHelper.createHadoopConfiguration();
-		conf = HBaseHelper.conf;
+		conf = HBaseConfiguration.create(); 
 		admin = new HBaseAdmin( conf );
 		if(admin.tableExists( tableName )) {
 			HTable table = new HTable( conf, tableName );

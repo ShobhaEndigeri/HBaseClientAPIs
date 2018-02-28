@@ -3,6 +3,7 @@ package com.hbase.examples;
 import java.io.IOException;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.HColumnDescriptor;
 import org.apache.hadoop.hbase.HTableDescriptor;
 import org.apache.hadoop.hbase.TableName;
@@ -22,8 +23,8 @@ public class HBaseCreateTable {
 		
 		try {
 
-			HBaseHelper.createHadoopConfiguration();
-			conf = HBaseHelper.conf;
+			conf = HBaseConfiguration.create(); 
+
 			admin = new HBaseAdmin( conf );
 			String table ="testtable";
 			String[]  colfams = {"colFam1"};

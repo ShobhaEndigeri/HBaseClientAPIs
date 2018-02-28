@@ -2,6 +2,7 @@ package com.hbase.examples;
 
 import java.io.IOException;
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.client.HTable;
 import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.client.ResultScanner;
@@ -20,9 +21,8 @@ public class ScanExample {
 	
 	public static void main(String[] args) throws IOException {
 
-		HBaseHelper.createHadoopConfiguration();
-		Configuration conf = HBaseHelper.conf;
-		HBaseHelper helper = new HBaseHelper(conf);
+		Configuration conf = HBaseConfiguration.create(); 
+		HBaseHelper helper = HBaseHelper.getHelper(conf);
 		helper.dropTable("testtable");
 		helper.createTable("testtable", "colfam1", "colfam2");
 		System.out.println("Adding rows to table...");
@@ -44,7 +44,7 @@ public class ScanExample {
 		colFamily[0]="colfam"+1;
 		colFamily[1]="colfam"+2;
 		
-		helper.put("testtable", keys, colFamily, qualifier, ts,vals);
+		//helper.put("testtable", keys, colFamily, qualifier, ts,vals);
 
 
 		System.out.println("Scanning table #1...");
