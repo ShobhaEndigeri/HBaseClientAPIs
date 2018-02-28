@@ -10,6 +10,8 @@ import org.apache.hadoop.hbase.client.HTable;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.util.Bytes;
 
+import com.hbase.utils.HBaseHelper;
+
 public class PutListExample {
 	public static void main(String args[]) {
 

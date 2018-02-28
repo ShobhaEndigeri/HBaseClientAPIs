@@ -12,6 +12,8 @@ import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Table;
 import org.apache.hadoop.hbase.util.Bytes;
 
+import com.hbase.utils.HBaseHelper;
+
 public class PutExample {
 	public static void main(String args[]) {
 

@@ -9,6 +9,8 @@ import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.util.Bytes;
 
+import com.hbase.utils.HBaseHelper;
+
 public class GetExample {
 
 	public static void main(String args[]) {
